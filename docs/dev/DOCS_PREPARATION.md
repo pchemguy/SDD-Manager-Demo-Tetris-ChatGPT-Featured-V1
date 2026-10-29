@@ -26,7 +26,7 @@ The approved PROJECT also establishes: 10 by 20 board, seven tetrominoes, indepe
 | --- | --- |
 | DOCS-001 | All four root files retained byte for byte against initial commit 1d93908b57fcf935f09a5b7446c090b9fdf54f5b; none copied. Manual provenance scaffold and merge verified as below. This commit includes the checked initialization task and HANDOFF; its push/readback and issue closure follow. |
 | DOCS-002 | PROJECT approved by the user's "k" on 2026-10-29, referring to published proposal 95e60a638d1dbd33de68b52cc7286d5409f7342f. Accepted SHA-256 `87f006ee0894cc98cfee305aa9e926231c0a9aab79211afb46d18e3501dd1bcf`; document bytes unchanged. |
-| DOCS-003 | Pending under autodoc preapproval; required technical QC remains applicable. |
+| DOCS-003 | Autodoc preapproval applies. [ARCHITECTURE](ARCHITECTURE.md) SHA-256 `b8073650a2f260a759f8d7b2c67949458ab41b515a91790c2ced0e2bc6a4743d`; author scope/consistency review and Markdown/local-link checks passed. |
 | DOCS-004 | Pending under autodoc preapproval; required technical QC remains applicable. |
 | DOCS-005 | Pending under autodoc preapproval; required technical QC remains applicable. |
 | DOCS-006 | Pending under autodoc preapproval; required technical QC remains applicable. |
@@ -49,4 +49,4 @@ The approved PROJECT also establishes: 10 by 20 board, seven tetrominoes, indepe
 
 ## Pending transitions
 
-Publish/read back this DOCS-002 completion and close/read back issue #2 before dependent preparation. Then continue under existing autodoc preapproval, stopping after DOCS-008. DOCS-009, documentation integration and implementation remain outside that stop.
+Publish/read back this DOCS-003 completion and close/read back issue #3 before dependent preparation. Then continue under existing autodoc preapproval, stopping after DOCS-008. DOCS-009, documentation integration and implementation remain outside that stop.
