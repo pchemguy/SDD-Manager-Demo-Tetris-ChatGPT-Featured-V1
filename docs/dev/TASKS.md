@@ -1,0 +1,73 @@
+# Implementation tasks
+
+This checklist derives executable work from [PLAN](PLAN.md), [SPEC](SPEC.md), [DECOMPOSITION](DECOMPOSITION.md) and [layout](layout.md). Commands below are planned tooling interfaces established by T-001, not evidence that setup or execution has succeeded. Task prerequisites include applicable published completion and required hosted closure, not merely a checked box.
+
+## Phase 1 - Classic browser baseline
+
+- [ ] Phase 1 - Classic browser baseline
+    - [ ] Milestone 1.1 - Playable falling-piece loop
+        - [ ] T-001 - Establish pinned tooling and isolated browser execution
+            Outcome: reproducible TypeScript ES-module compilation and pytest tooling with representative isolated Chromium headless-shell and managed Firefox execution before browser-dependent work.
+            Scope: package/config/lock files, project-local setup, minimal build/serve/check interfaces, environment fixtures, ignore rules, docs/dev/ENVIRONMENT.md and validated setup navigation in AGENTS/README. Initialize version 0.1.0. Keep dependencies/browsers/generated state in layout-owned ignored paths and preserve host installations. No game capability is claimed by a synthetic environment page.
+            Depends on: none within this list; accepted integrated preparation and verified Phase 1 activation are execution prerequisites.
+            Verification: python tools/setup.py; npm run build; python tools/check.py environment. Record selected versions/trusted sources, exact managed binaries/modes, repeated page/context lifecycle, basic rendering and teardown. Follow browser/Playwright recovery policy on actual failures; distinguish provisioning from application acceptance and native from modeled behavior. Establish all suite dispatcher interfaces before dependents use them.
+        - [ ] T-002 - Implement the immutable model and canonical piece geometry
+            Outcome: shared typed snapshots/actions and canonical occupied-cell/rotation/placement operations for S-01/S-02.
+            Scope: src/core/model.ts, src/core/geometry.ts, the test-only compiled-module driver and focused pytest geometry fixtures. Use one shape definition for engine and view. Include module/API documentation.
+            Depends on: T-001.
+            Verification: npm run build; python tools/check.py core. Establish failing behavioral cases before implementation; verify four occupied cells, hand-checked clockwise/counterclockwise coordinates, four-turn cycles, O no-op, canonical spawn, matrix padding, edge/settled-cell collision and immutability.
+        - [ ] T-003 - Implement the running session and failed-downward resolution
+            Outcome: ready/start/restart, independent active/queued draws, movement/rotation, gravity/soft-drop cadence, atomic lock/row-clear/spawn and game-over for S-01 to S-04 and base S-05 resolution.
+            Scope: src/core/engine.ts and focused core scenarios through production interfaces. Preserve full immutable snapshot types; scoring/speed progression and pause transitions are completed in 1.2, rather than claimed here.
+            Depends on: T-002.
+            Verification: npm run build; python tools/check.py core. Cover repeat/boundary RNG draws and draw counts, rejection without mutation, successful contact versus failed-down locking, exact expiry and discarded overflow, unchanged cadence, simultaneous row compaction, post-clear spawn, blocked-spawn draw behavior and invalid internal inputs. Include focused RED/GREEN evidence and module/API documentation.
+        - [ ] T-004 - Integrate the first live browser play loop
+            Outcome: actual HTTP-served board play with start/restart, arrows/rotation/soft drop, falling/locking/clearing and visible game-over.
+            Scope: the first shared game view and browser input/host/entry, static page/styles and browser integration fixtures. Use production core geometry/rules; keep platform timing/randomness outside the engine. Basic due-gravity-before-input ordering is integrated here. Full statistics/preview/pause/accessibility presentation belongs to 1.2.
+            Depends on: T-003.
+            Verification: npm run build; python tools/check.py core; python tools/check.py browser. Exercise the real built app in both selected headless engines, inspect a rendered board screenshot, deliver real keyboard/button input and verify one host loop with cleanup. Demonstrate failed-down locking and a real row clear using controlled test RNG/fixtures without shipping a debug endpoint/global.
+        - [ ] T-005 - Review and report the playable-loop milestone
+            Outcome: whole-capability code review, scoped acceptance/regressions, blocker repair and a verified 1.1 demonstration.
+            Scope: all delivered 1.1 code and its dependencies; docs/dev/reports/phases/1/1.1.md and HANDOFF. Assess rules/UI/platform ownership separately from test execution. Record control/cadence usability observations and any human steering request without changing scope automatically.
+            Depends on: T-001, T-002, T-003 and T-004.
+            Verification: npm run build; python tools/check.py environment; python tools/check.py core; python tools/check.py browser. Assess scoped S-01 to S-04/base S-05 and the working browser path, explicitly retaining 1.2/1.3 deferrals. Resolve blockers, retain review/check evidence and a TODO section, update HANDOFF, then close the milestone only after all constituent issues and its exits are verified.
+    - [ ] Milestone 1.2 - Complete classic experience
+        - [ ] T-006 - Complete scoring and level-dependent gravity
+            Outcome: S-05 points/line totals/levels and the resulting next-piece gravity interval, preserving existing lock/spawn behavior.
+            Scope: core session progression and focused fixtures/module documentation; use the pre-clear level for scoring and resulting level for the newly spawned countdown.
+            Depends on: T-005 and completion/closure of milestone 1.1.
+            Verification: npm run build; python tools/check.py core. Cover 0-4 clears, nonadjacent row compaction, level-boundary crossings, minimum interval, unchanged score on soft drop and post-clear top-out/statistics. Retain focused RED/GREEN and existing-session regression evidence.
+        - [ ] T-007 - Complete pause, page lifecycle and error containment
+            Outcome: preserved gravity remainder, explicit resume, idempotent hide/blur pause, correct input filtering and bounded host disposal/fatal-error behavior for S-04/S-06/S-08.
+            Scope: engine pause transitions, browser host/input and cooperating clock/lifecycle/error tests. Keep standard DOM callbacks reusable and do not add a lock timer or input-repeat timer.
+            Depends on: T-005 and completion/closure of milestone 1.1.
+            Verification: npm run build; python tools/check.py core; python tools/check.py browser. Verify due gravity before command, no elapsed double counting, pause/resume remainder, no automatic resume, hidden-page resume rejection, repeat/modifier/native-button handling and no callbacks after disposal. Exercise real supported page lifecycle events and label modeled/native evidence separately; inject an internal failure and inspect stopped-host error presentation.
+        - [ ] T-008 - Complete the classic UI and review milestone 1.2
+            Outcome: complete next-piece preview/statistics, accurate controls/status/overlays, accessible focus/buttons and usable responsive presentation for S-06/S-07.
+            Scope: shared view, external styles, keyboard instructions, browser checks and user documentation. Include whole-milestone code review, tests/regressions, blocker repair, docs/dev/reports/phases/1/1.2.md and HANDOFF before this task's completion commit.
+            Depends on: T-006 and T-007.
+            Verification: npm run build; python tools/check.py core; python tools/check.py browser. Inspect screenshots at 640x480 and 1280x720, real keyboard/control focus, ready/paused/game-over preservation, queue/active cells, restart and status announcements. Demonstrate the complete classic experience and assess usability. Resolve review blockers, retain a TODO section and close milestone 1.2 only after its issue membership and exits are verified. No standalone milestone review task is added for these three delivery tasks.
+    - [ ] Milestone 1.3 - Deployable browser delivery
+        - [ ] T-009 - Complete the static production build and deployment guide
+            Outcome: a clean type-checked browser tree served correctly at root and nested HTTP paths, with local-only runtime assets and usable deployment/play instructions.
+            Scope: build/serve tools, relative HTML/module/CSS paths and content policy, production asset allowlist, README and docs/INSTALL.md. Preserve the complete classic behavior and shared source boundaries.
+            Depends on: T-008 and completion/closure of milestone 1.2.
+            Verification: npm run build; python tools/check.py core; python tools/check.py browser. Check missing/incorrect assets, safe owned-output cleanup, nested-path loading and absent external runtime requests. Run the documented static-server path and inspect instructions; label development prerequisites separately from player/deployment needs.
+        - [ ] T-010 - Complete reusable built-app acceptance coverage
+            Outcome: the complete feasible S-10 browser/rendering/lifecycle matrix through the actual build, reusable against an extracted archive root.
+            Scope: tests/browser, shared production-module harnesses and reusable server/browser fixtures, plus bounded check dispatch. Control RNG/time without shipping test controls. Add missing acceptance coverage rather than duplicating core assertions mechanically.
+            Depends on: T-009.
+            Verification: python tools/check.py all for the implemented suites, with package assertions introduced by T-011 remaining explicit; python tools/check.py browser against the built HTTP app in both managed engines. Cover complete game flow/preview/progression, keyboard/button parity, rejected input, screenshots, lifecycle/error behavior, repeated isolated contexts and teardown. Report unsupported full-browser/native-window checks separately and repair feasible failures.
+        - [ ] T-011 - Prepare reproducible browser archives and review milestone 1.3
+            Outcome: deterministic candidate ZIP/checksum, payload/source/version metadata, deployment instructions and finalized release-note preparation for v0.1.0, with complete packaged-byte acceptance.
+            Scope: tools/package.py, tests/package, release notes, instructions and ignored artifacts. Use the exact S-09 allowlist; exclude credentials/dependencies/caches/source fixtures/manual logs. Candidate archives are not final published assets; the coordinator rebuilds/rechecks from the pinned release commit after verified main integration.
+            Depends on: T-009 and T-010.
+            Verification: npm run build; python tools/package.py; python tools/check.py all. Compare repeated archive bytes, verify entry safety/allowlist, payload manifest and external checksum, safely extract and run the reusable browser acceptance flows against extracted bytes under a nested HTTP path in Chromium and Firefox. Verify source metadata truthfully and do not claim native/signed/store delivery.
+            Milestone boundary: before this task's completion commit, review all 1.3 code and dependencies, repair blockers, retain docs/dev/reports/phases/1/1.3.md with evidence/limits/TODOs and refresh HANDOFF. Close milestone 1.3 only after all three issues and exits are verified. Release upload/tagging follows completed phase integration rather than this task.
+    - [ ] Milestone 1.4 - Phase review
+        - [ ] T-012 - Review, test and report the complete browser phase
+            Outcome: full code review and acceptance assessment, resolved contract/exit blockers, phase/final reports, TODO aggregation and integration readiness for the complete classic browser baseline.
+            Scope: all delivered code, test/tooling/deployment paths, architectural reuse boundaries, milestone evidence and prepared archive/notes; docs/dev/reports/phases/1/PHASE-REPORT.md, docs/dev/reports/IMPLEMENTATION-REPORT.md and HANDOFF.
+            Depends on: T-005, T-008 and T-011, with delivery milestones 1.1, 1.2 and 1.3 completed/closed. This task does not wait for its own milestone closure.
+            Verification: npm run build; python tools/check.py all; python tools/package.py and applicable extracted-byte/package rechecks after any repair. Review code independently of passing tests, trace every S-01 to S-10 contract to evidence, aggregate deferred noncritical TODOs with provenance/options, and confirm no modern/platform scope leaked in. Document omitted native/full-browser evidence without claiming it passed.
+            Phase boundary: commit/publish the reviewed result, reports, HANDOFF and this task's initial checkoff together; reconcile phase review issue/milestone closure, then coordinate explicit verified/published default-branch integration. Rebuild/recheck final release assets from the pinned eligible release commit before publishing its tag and GitHub release. No additional implementation phase is selected by completion.
