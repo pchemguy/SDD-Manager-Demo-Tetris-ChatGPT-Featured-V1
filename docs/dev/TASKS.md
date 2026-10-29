@@ -4,7 +4,7 @@ This checklist derives executable work from [PLAN](PLAN.md), [SPEC](SPEC.md), [D
 
 ## Phase 1 - Classic browser baseline
 
-- [ ] Phase 1 - Classic browser baseline
+- [x] Phase 1 - Classic browser baseline
     - [x] Milestone 1.1 - Playable falling-piece loop
         - [x] T-001 - Establish pinned tooling and isolated browser execution
             Outcome: reproducible TypeScript ES-module compilation and pytest tooling with representative isolated Chromium headless-shell and managed Firefox execution before browser-dependent work.
@@ -86,10 +86,12 @@ This checklist derives executable work from [PLAN](PLAN.md), [SPEC](SPEC.md), [D
             Milestone boundary: before this task's completion commit, review all 1.3 code and dependencies, repair blockers, retain docs/dev/reports/phases/1/1.3.md with evidence/limits/TODOs and refresh HANDOFF. Close milestone 1.3 only after all three issues and exits are verified. Release upload/tagging follows completed phase integration rather than this task.
             Completion evidence: Implemented deterministic versionless browser ZIP/checksum, explicit 14-file inventory, source/version/dirty metadata, stable order/time/modes, payload hashes, bounded link-safe validation/extraction and clean-source release CLI. Archive scaffold failures preceded implementation. npm run build/package passed; full suite: 106 passed, including all 30 browser checks against extracted nested-path bytes in both engines. Final package suite: 10 passed without warnings after asserting the intentional duplicate fixture warning. Repeated bytes, CRC/manifest/checksum and hostile inputs verified. Whole delivery review retained in docs/dev/reports/phases/1/1.3.md, TODO None. Complete v0.1.0 notes/highlights prepared and narrowly ignored; full initial Git coverage and remote null baseline confirmed. Candidate is explicitly dirty-source, not a final uploaded asset; final phase review/integration and exact clean release rebuild remain required.
 
-    - [ ] Milestone 1.4 - Phase review
-        - [ ] T-012 - Review, test and report the complete browser phase
+    - [x] Milestone 1.4 - Phase review
+        - [x] T-012 - Review, test and report the complete browser phase
             Outcome: full code review and acceptance assessment, resolved contract/exit blockers, phase/final reports, TODO aggregation and integration readiness for the complete classic browser baseline.
             Scope: all delivered code, test/tooling/deployment paths, architectural reuse boundaries, milestone evidence and prepared archive/notes; docs/dev/reports/phases/1/PHASE-REPORT.md, docs/dev/reports/IMPLEMENTATION-REPORT.md and HANDOFF.
             Depends on: T-005, T-008 and T-011, with delivery milestones 1.1, 1.2 and 1.3 completed/closed. This task does not wait for its own milestone closure.
             Verification: npm run build; python tools/check.py all; python tools/package.py and applicable extracted-byte/package rechecks after any repair. Review code independently of passing tests, trace every S-01 to S-10 contract to evidence, aggregate deferred noncritical TODOs with provenance/options, and confirm no modern/platform scope leaked in. Document omitted native/full-browser evidence without claiming it passed.
             Phase boundary: commit/publish the reviewed result, reports, HANDOFF and this task's initial checkoff together; reconcile phase review issue/milestone closure, then coordinate explicit verified/published default-branch integration. Rebuild/recheck final release assets from the pinned eligible release commit before publishing its tag and GitHub release. No additional implementation phase is selected by completion.
+
+            Completion evidence: Completed independent cross-milestone code/contract review and documentation QC after delivery milestones closed. Corrected P1 stale AGENTS suite navigation and clarified shared-view ownership; 37 current document links and whitespace checks pass. npm run build passed; complete suite: 106 passed in 49.90s, no warnings/skips, including nested extracted-byte execution of all 30 browser checks. Core/shared/browser boundaries, all S-01 to S-10 contracts, reports and package exclusions reviewed. Phase/final reports aggregate R1/P1 as resolved, TODO None, and preserve modeled/native limits. First eleven task closing commits satisfy result/evidence/initial-checkbox composition; audit T-012 after publication, then integrate/verify/publish main and complete the exact-source clean v0.1.0 release. No hosted release success is claimed by this checkpoint.

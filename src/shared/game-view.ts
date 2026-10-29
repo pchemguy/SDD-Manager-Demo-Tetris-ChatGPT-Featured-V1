@@ -2,6 +2,7 @@
 import type { Action, GameState } from '../core/model.js';
 import { cells, spawn } from '../core/geometry.js';
 
+/** Mount an owned view. Render immutable snapshots; emitted commands belong to the host. */
 export function mountView(root: HTMLElement, command: (action: Action) => void) {
   const doc = root.ownerDocument;
   const make = <K extends keyof HTMLElementTagNameMap>(tag: K, className = '', text = '') => {
