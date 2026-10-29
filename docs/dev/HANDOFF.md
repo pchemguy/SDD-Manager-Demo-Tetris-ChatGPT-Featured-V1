@@ -1,17 +1,17 @@
 # Project handoff
 
-Checkpoint: complete Phase 1 integration into main.
+Checkpoint: direct main release boundary for Classic Tetris v0.1.0.
 
-All T-001 through T-012 tasks, four implementation milestones and Phase 1 are complete and verified. Each task result/evidence/initial checkbox was committed together, published and tracked. All task issues and milestones were closed/read back. The twelve closing commits passed composition audit. Modern extensions and Electron delivery remain excluded.
+All twelve implementation tasks, the complete browser phase, four implementation milestones and their issues are verified, published and closed. The phase commit a453ad7aff7394802a539613fb27993689fafc28 was explicitly merged into its creation parent main at 86ccc9d07e0c85387d2e86e360f7743b2078a5cb; the merged build and full 106-test suite passed, and the integration was published/read back. All twelve task closing commits passed result/evidence/initial-checkbox/report composition audit. Phase/final reports retain the complete review and resolved findings.
 
-## Scope and evidence
+## Release authority and source
 
-The user authorized full QC/implementation and the post-phase v0.1.0 release on 2026-10-29. PROJECT/SPEC/PLAN/TASKS retain the accepted classic-only behavior: lock on failed downward movement, no lock timer, shared TypeScript rules/UI and separate browser host. Phase/final reports under reports retain independent code review, 106 passing checks including extracted-byte nested browser acceptance, resolved findings and environment limits. Visibility/blur delivery is modeled; native OS-window, headed/full-browser, Windows-native and Electron checks remain unverified/excluded.
+The user authorized the full accepted classic browser scope, QC, main integration and a release after the verified phase. Version 0.1.0 agrees across package/lock/install/notes. This direct default-branch release commit uses the exact retained RELEASE-NOTES.md body. Initial baseline is null: complete local history and remote tag/release inventories show no preceding release. Highlights were assessed through the complete integration, including all reachable preparation and implementation identities. Modern extensions and Electron remain excluded; no lock timer was introduced.
 
-## Integration provenance
+## Remaining effects
 
-Source phase/1-classic-browser-baseline: a453ad7aff7394802a539613fb27993689fafc28. Receiving main parent: fae386357a66d931b476ef66e3788b893a48a2c1. Original creation parent main and branch-off fae386357a66d931b476ef66e3788b893a48a2c1. This explicit two-parent merge preserves the complete phase. Merged npm run build and full suite passed: 106 tests, including extracted-byte acceptance. No merge conflicts or product changes were introduced.
+Publish/read back this release commit, then confirm its default first-parent placement and notes/body agreement. Build/package twice from this exact clean commit, verify hashes/metadata and run full/extracted-byte acceptance. Only then publish/read back annotated v0.1.0 at this commit, create/reuse the matching GitHub draft, upload and verify both stable assets, publish and read back body/assets/latest and downloaded bytes. Retain the complete notes; remove only the owned internal highlights checkpoint after verified published-body consumption. Never move a published tag or substitute a later source. No hosted release success is claimed by this Git checkpoint.
 
-## Remaining authorized boundary
+## Verification limits
 
-Publish/read back this verified integration, then prepare the direct default-branch release commit with exact finalized notes. Refresh initial-release highlights through that commit; rebuild/package from clean pinned source, verify reproducibility and extracted bytes, publish/read back v0.1.0 tag, then upload/publish/read back the GitHub release, body, archive/checksum, downloaded bytes and latest. Candidate dirty-source archives are not final assets. Do not request authorization again or broaden scope. Retain the complete release notes after publication.
+Managed Chromium headless shell and Firefox on Linux are exercised; the documented Firefox process-local remedy is test-only. Visibility/blur event delivery is modeled. Native OS-window lifecycle, headed/full-browser, Windows-native and Electron remain unverified/excluded. There is no CI/signing/store package claim. This is a static browser release with no player Node dependency.
