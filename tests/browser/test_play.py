@@ -52,7 +52,7 @@ def test_native_gravity_moves_the_live_piece(page, server_url):
 def test_composed_host_owns_one_loop_and_disposes(page, server_url):
     page.goto(server_url)
     result=page.evaluate('''async () => {
-      const {mountGame}=await import('/platform/browser/host.js');
+      const {mountGame}=await import(new URL('./platform/browser/host.js',document.baseURI).href);
       const root=document.createElement('div');document.body.append(root);
       const frames=[], cancelled=[];
       const host=mountGame(root,{random:()=>0.5,now:()=>0,

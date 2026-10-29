@@ -19,4 +19,10 @@ python tools/serve.py --root dist --port 4173
 
 Open http://127.0.0.1:4173/ and select Start. See [environment evidence](docs/dev/ENVIRONMENT.md) for pinned versions, the official download fallback and the process-local Firefox remedy required on the recorded Linux host. Provisioning evidence and application acceptance are separate. The build includes only local modules/styles/assets and the license notice.
 
+Browser acceptance can target another built or extracted web directory without changing the app:
+
+```text
+python tools/check.py browser --web-root path/to/web --web-prefix games/classic
+```
+
 The [project brief](docs/dev/PROJECT.md), [specification](docs/dev/SPEC.md) and [tasks](docs/dev/TASKS.md) define scope and evidence. Development uses [SDD Manager](SDD-MANAGER.md); see the [AI-assisted development disclosure](AI_DISCLOSURE.md).

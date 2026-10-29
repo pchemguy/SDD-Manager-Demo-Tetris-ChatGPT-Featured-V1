@@ -6,8 +6,8 @@ import pytest
 ROOT=Path(__file__).resolve().parents[2]
 
 @pytest.fixture
-def nested_url(tmp_path):
-    root=tmp_path/'games/classic';shutil.copytree(ROOT/'dist',root)
+def nested_url(tmp_path,web_root):
+    root=tmp_path/'games/classic';shutil.copytree(web_root,root)
     server=ThreadingHTTPServer(('127.0.0.1',0),functools.partial(SimpleHTTPRequestHandler,directory=str(tmp_path)))
     thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
     try:yield f'http://127.0.0.1:{server.server_port}/games/classic/'
@@ -15,7 +15,7 @@ def nested_url(tmp_path):
 
 @pytest.mark.parametrize('deployment',['root','nested'])
 def test_static_local_assets_and_csp(page,server_url,nested_url,deployment):
-    url=server_url+'/' if deployment=='root' else nested_url
+    url=server_url.rstrip('/')+'/' if deployment=='root' else nested_url
     requests=[];failures=[];errors=[]
     page.on('request',lambda r:requests.append(r.url));page.on('response',lambda r:failures.append(r.url) if r.status>=400 else None)
     page.on('pageerror',lambda e:errors.append(str(e)))

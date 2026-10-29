@@ -18,7 +18,7 @@ def test_native_pause_keys_and_resume_focus(page,server_url):
 def test_controlled_host_preserves_pause_remainder_and_due_order(page,server_url):
     page.goto(server_url)
     result=page.evaluate('''async()=>{
-      const {mountGame}=await import('/platform/browser/host.js');
+      const {mountGame}=await import(new URL('./platform/browser/host.js',document.baseURI).href);
       const root=document.createElement('div');document.body.append(root);
       let time=0;const frames=[];
       const host=mountGame(root,{random:()=>0.5,now:()=>time,requestFrame:cb=>{frames.push(cb);return frames.length},cancelFrame:()=>{}});
@@ -36,7 +36,7 @@ def test_controlled_host_preserves_pause_remainder_and_due_order(page,server_url
 def test_modeled_visibility_blur_and_hidden_resume_guard(page,server_url):
     page.goto(server_url)
     result=page.evaluate('''async()=>{
-      const {mountGame}=await import('/platform/browser/host.js');
+      const {mountGame}=await import(new URL('./platform/browser/host.js',document.baseURI).href);
       const root=document.createElement('div');document.body.append(root);let hidden=false;
       const descriptor=Object.getOwnPropertyDescriptor(document,'hidden');
       Object.defineProperty(document,'hidden',{configurable:true,get:()=>hidden});
@@ -56,7 +56,7 @@ def test_internal_and_render_failures_stop_without_uncaught_error(page,server_ur
     errors=[];page.on('pageerror',lambda error:errors.append(str(error)))
     page.goto(server_url)
     result=page.evaluate('''async()=>{
-      const {mountGame}=await import('/platform/browser/host.js');const results=[];
+      const {mountGame}=await import(new URL('./platform/browser/host.js',document.baseURI).href);const results=[];
       for(const mode of ['random','render']){
         const root=document.createElement('div');document.body.append(root);let calls=0;const frames=[];
         const host=mountGame(root,{random:()=>{calls++;return mode==='random'?1:0.5},now:()=>0,requestFrame:cb=>{frames.push(cb);return 1},cancelFrame:()=>{}});

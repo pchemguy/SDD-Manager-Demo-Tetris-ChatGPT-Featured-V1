@@ -79,7 +79,7 @@ def main():
     if not paths:
         raise SystemExit('No implemented tests in selected suite')
     print('Selected implemented suites: ' + ', '.join(paths), flush=True)
-    raise SystemExit(run([sys.executable, '-m', 'pytest', '-q', *paths]))
+    raise SystemExit(run([sys.executable, '-m', 'pytest', '-q', *paths, *sys.argv[2:]]))
 
 if __name__ == '__main__':
     main()
