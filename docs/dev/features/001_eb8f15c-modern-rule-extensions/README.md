@@ -6,7 +6,7 @@ Feature campaign 001_eb8f15c, opened at eb8f15c418f8f4462815e8771429fea7be37c135
 
 ## Requested capability
 
-The user requested opening this feature campaign with hold, next-piece preview, ghost, 7-bag randomization, wall kicks, hard drop and a full gravity-interval grounded lock delay. The delay is the default; hard drop follows that same policy unless immediate hard-drop locking is selected. This supersedes the classic release's immediate failed-down lock contract for the new capability. The user has not supplied movement/rotation reset semantics.
+The user requested opening this feature campaign with hold, next-piece preview, ghost, 7-bag randomization, wall kicks, hard drop and a full gravity-interval grounded lock delay. The delay is the default; hard drop follows that same policy unless immediate hard-drop locking is selected. This supersedes the classic release's immediate failed-down lock contract for the new capability. The user confirmed that grounded movement/rotation does not restart the lock countdown; a restart is allowed only after the piece lifts off support.
 
 The released baseline already provides one next-piece preview. Retain and verify that capability with hold, bag refill, promotion and top-out rather than add a second preview. Preserve shared TypeScript game logic/DOM UI and separate browser integration. Electron delivery remains future scope.
 
@@ -20,6 +20,10 @@ Stage: feature exploration/preparation, coordinated through sdd-manage and sdd-d
 
 GitHub tracking remains enabled under AGENTS. Project eligible feature task/milestone objects after the feature hierarchy is defined and reviewed; this opening does not fabricate executable tasks or project a future phase. The project's release-after-delivery instruction remains applicable. Propose v0.2.0 for the complete verified feature release; no version bump or release is performed at campaign opening.
 
+## Confirmed lock-delay decision
+
+The user explicitly selected no countdown restart while the piece remains grounded. Successful movement or rotation that retains support preserves the remaining lock time. Lifting off support cancels that grounded countdown; the next transition back to grounded starts a fresh full gravity interval. Repeated failed downward attempts do not count as lifting off and cannot refresh the delay. This decision applies to the shared delayed-lock policy, including delayed hard drop; the explicitly selected immediate-hard-drop exception remains distinct.
+
 ## Material proposals requiring resolution
 
 These are agent proposals, not user decisions or implementation contracts:
@@ -30,10 +34,10 @@ These are agent proposals, not user decisions or implementation contracts:
 - Use SRS wall-kick behavior with explicit rotation tables/coordinate and top-boundary contracts in the specification. Preserve the 10x20 visible board unless a necessary change is explicitly accepted.
 - Use C for hold and Space for hard drop; retain current movement, rotation and pause bindings. Provide a session-only immediate-hard-drop-lock option, off by default. Persistent settings and a general mode selector are not requested.
 - Start a separate full current-level gravity-interval lock countdown when the active piece becomes grounded, independently of the remaining fall countdown. Freeze both clocks on pause. Failed down attempts do not bypass that delay.
-- Recommended reset rule: grounded movement/rotation does not restart the lock countdown; becoming airborne cancels it and landing again starts a full interval. A delayed hard drop that leaves an already grounded piece in place preserves its existing countdown. Immediate hard-drop mode locks on the command, including zero-distance drops.
+- A delayed hard drop that leaves an already grounded piece in place preserves its existing countdown under the confirmed reset rule. Immediate hard-drop mode locks on the command, including zero-distance drops.
 
-Before a dependent specification, resolve whether successful grounded movement/rotation resets the delay. Then finalize hold/queue/bag ordering, ghost/kick/top-out boundaries, drop-option semantics and exact elapsed-time event ordering in the feature design/specification. No product code or tests were changed at this opening.
+Apply the confirmed reset rule in the feature design/specification. Finalize hold/queue/bag ordering, ghost/kick/top-out boundaries, drop-option semantics and exact elapsed-time event ordering. No product code or tests are changed by this decision checkpoint.
 
 ## Opening evidence and next boundary
 
-Inspected clean Git/main state, current handoff/instructions and engine/model; read back actual default main and all remote branches. No prior campaign reservation or active FEATURE package was found in local paths/refs or remote branches. Main checkpoint matched eb8f15c418f8f4462815e8771429fea7be37c135. Allocated sequence 001 once across feature/review/steering identities. New branch and opening record must be published/read back before progression. Next human checkpoint: resolve the material gameplay choice and review necessary feature design proposals. Previous full implementation authority applied to the completed classic scope; it does not constitute acceptance of unwritten feature documents.
+Inspected clean Git/main state, current handoff/instructions and engine/model; read back actual default main and all remote branches. No prior campaign reservation or active FEATURE package was found in local paths/refs or remote branches. Main checkpoint matched eb8f15c418f8f4462815e8771429fea7be37c135. Allocated sequence 001 once across feature/review/steering identities. Opening commit 664f51317ae41212f81f19b6a62bec49bc5dc24e was published/read back on the preparation branch. This decision checkpoint requires publication/readback. Next human checkpoint: review necessary feature design proposals; the lock-reset question is resolved. Previous full implementation authority applied to the completed classic scope; it does not constitute acceptance of unwritten feature documents.

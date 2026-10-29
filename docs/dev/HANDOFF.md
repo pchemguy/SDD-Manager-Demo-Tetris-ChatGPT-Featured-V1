@@ -1,6 +1,6 @@
 # Project handoff
 
-Checkpoint: modern rule extensions feature campaign opened for preparation.
+Checkpoint: modern rule extensions preparation; grounded lock-reset decision confirmed.
 
 ## Workflow and sources
 
@@ -8,7 +8,7 @@ Feature 001_eb8f15c, exploration/preparation stage, coordinated by sdd-manage/sd
 
 ## Authority and stop
 
-The user requested opening a feature campaign for hold, preview, ghost, 7-bag, wall kicks, hard drop and full gravity-interval grounded lock delay; hard drop shares the delay by default with selectable immediate locking. One next-piece preview already exists and is retained. Product scope remains the browser/shared TypeScript UI and rules with browser-specific host; Electron is future scope. Current authorized output is the campaign opening/preparation, preserving human review of material decisions and necessary new design documents. Do not silently treat proposed lock resets, keys, SRS details or settings behavior as user-approved.
+The user requested opening a feature campaign for hold, preview, ghost, 7-bag, wall kicks, hard drop and full gravity-interval grounded lock delay; hard drop shares the delay by default with selectable immediate locking. One next-piece preview already exists and is retained. Product scope remains the browser/shared TypeScript UI and rules with browser-specific host; Electron is future scope. Current authorized output is the campaign opening/preparation, preserving human review of material decisions and necessary new design documents. The user confirmed no lock-countdown restart while grounded. Lifting off support cancels it; landing again starts a fresh full gravity interval. Movement/rotation that keeps support and failed downward attempts preserve the remaining lock time. Do not treat the remaining proposed keys, SRS details or settings behavior as user-approved.
 
 ## Branch and return
 
@@ -16,4 +16,4 @@ Working preparation branch: design-docs/001_eb8f15c-modern-rule-extensions. Crea
 
 ## Pending actions
 
-Publish/read back this opening commit and branch. Resolve grounded movement/rotation lock-reset behavior, then prepare/review only necessary feature design, behavior and delivery/task deltas. GitHub tracking stays enabled; project eligible implementation objects only after reviewed feature hierarchy exists. Proposed next feature release v0.2.0 is planning context, not a performed bump/release. No implementation or tests ran for this opening. Reporting after explicit entry uses concise Standard updates; Explicit/Minimal profiles remain available.
+The opening commit/branch was published/read back. Publish/read back this decision checkpoint, then prepare/review only necessary feature design, behavior and delivery/task deltas using the confirmed reset rule. GitHub tracking stays enabled; project eligible implementation objects only after reviewed feature hierarchy exists. Proposed next feature release v0.2.0 is planning context, not a performed bump/release. No implementation or tests ran for this documentation-only decision checkpoint; document links and whitespace are checked. Reporting after explicit entry uses concise Standard updates; Explicit/Minimal profiles remain available.
