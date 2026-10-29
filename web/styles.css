@@ -1,2 +1,20 @@
-/* Shared visual assets; the game surface is introduced by T-004. */
-body { font-family: system-ui, sans-serif; }
+/* Shared board presentation; colors and positioning contain no gameplay rules. */
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; padding: 24px; background: #0b1620; color: #ebf3f5; font-family: system-ui, sans-serif; }
+#app { max-width: 680px; margin: 0 auto; }
+h1 { font-size: 28px; }
+.layout { display: flex; align-items: flex-start; gap: 28px; }
+.stage { position: relative; }
+.board { display: grid; grid-template-columns: repeat(10, 1fr); grid-template-rows: repeat(20, 1fr); width: 220px; height: 440px; gap: 1px; background: #090e14; border: 2px solid #36505f; }
+.board:focus-visible, button:focus-visible { outline: 3px solid #70e5cb; outline-offset: 4px; }
+.cell { background: #172632; min-width: 0; min-height: 0; }
+.filled { box-shadow: inset 0 0 0 1px #ffffff33; }
+.active { box-shadow: inset 0 0 0 2px #ffffff66; }
+.piece-I { background: #49cddb; }.piece-J { background: #528bea; }.piece-L { background: #eea24d; }.piece-O { background: #efd260; }.piece-S { background: #71cb80; }.piece-T { background: #b691ef; }.piece-Z { background: #e9757f; }
+.overlay { position: absolute; inset: 0; display: grid; place-items: center; background: #091420dc; font-size: 26px; font-weight: 700; pointer-events: none; }
+.side { width: 220px; }
+button { width: 100%; padding: 12px; margin: 6px 0; border: 1px solid #456171; border-radius: 6px; background: #192e3b; color: #ebf3f5; font: inherit; cursor: pointer; }
+button.primary { background: #70e5cb; color: #09221c; border-color: #70e5cb; font-weight: 700; }
+.status { color: #70e5cb; font-weight: 700; }
+.instructions { color: #a5bbc7; line-height: 1.7; }
