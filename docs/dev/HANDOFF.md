@@ -1,8 +1,8 @@
 # Project handoff
 
-Checkpoint: Phase 1 milestone 1.1 verified on phase/1-classic-browser-baseline.
+Checkpoint: Phase 1 milestone 1.2 verified on phase/1-classic-browser-baseline.
 
-Whole-milestone code review completed separately from execution. Resolved R1: detached children escaped group-only timeout cleanup; observed failing reproduction, then verified namespace-aware Linux subreaping and normal-child reaping. npm run build passed; complete implemented suite: 58 passed with documented Firefox remedy. Real two-browser play/gravity, screenshots and controlled one-loop/disposal evidence pass. Report docs/dev/reports/phases/1/1.1.md records exact source identities, scope, correction and limits; TODO None. Milestone 1.1 exits and early live-play demonstration verified; 1.2/1.3 deferrals retained.
+Completed snapshot-driven preview/statistics, status/overlays, semantic controls, keyboard guidance, focus indicators and responsive layouts. Four presentation RED failures preceded implementation. npm run build passed; complete implemented suite: 83 passed (8 environment, 55 core, 20 browser) with the documented Firefox remedy. Individually inspected both engines at 640x480 and 1280x720; native keyboard/button checks and real two-row scoring pass without clipping. Whole-milestone code review covers engine progression, host/lifecycle/error paths and shared presentation; report docs/dev/reports/phases/1/1.2.md retains scope, source identities, evidence, limits and TODO None. Production packaging remains in 1.3.
 
 ## Authority and sources
 
@@ -14,4 +14,4 @@ Working branch: phase/1-classic-browser-baseline. Creation parent/integration ta
 
 ## Next operation
 
-This task's commit still requires push/readback, its issue closure and milestone 1.1 closure/readback. Reconcile those actual effects before dependent work. Continue the remaining authorized tasks in TASKS after prerequisite closure. Do not broaden scope or repeat completed work.
+This task's commit still requires push/readback, its issue closure and milestone 1.2 closure/readback. Reconcile those actual effects before dependent work. Continue the remaining authorized tasks in TASKS after prerequisite closure. Do not broaden scope or repeat completed work.

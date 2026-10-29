@@ -1,6 +1,6 @@
 /** Shared DOM presentation. The view consumes snapshots and emits commands only. */
 import type { Action, GameState } from '../core/model.js';
-import { cells } from '../core/geometry.js';
+import { cells, spawn } from '../core/geometry.js';
 
 export function mountView(root: HTMLElement, command: (action: Action) => void) {
   const doc = root.ownerDocument;
@@ -8,7 +8,8 @@ export function mountView(root: HTMLElement, command: (action: Action) => void) 
     const node = doc.createElement(tag); node.className = className; node.textContent = text; return node;
   };
   const shell = make('section', 'game-shell');
-  shell.append(make('h1', '', 'Classic Tetris'));
+  const header = make('header'); header.append(make('p', 'eyebrow', 'THE ORIGINAL CHALLENGE'), make('h1', '', 'Classic Tetris'));
+  shell.append(header);
   const layout = make('div', 'layout'), stage = make('div', 'stage');
   const surface = make('div', 'board'); surface.tabIndex = 0;
   surface.setAttribute('role', 'img'); surface.setAttribute('aria-label', 'Tetris board, 10 columns and 20 rows');
@@ -26,7 +27,21 @@ export function mountView(root: HTMLElement, command: (action: Action) => void) 
   toggle.addEventListener('click', pause);
   const begin = () => command({ type: 'start' }), reset = () => command({ type: 'restart' });
   start.addEventListener('click', begin); restart.addEventListener('click', reset);
-  side.append(status, start, toggle, restart, make('p', 'instructions', 'Arrows: move / soft drop. Up or X: clockwise. Z: counterclockwise. P / Escape: pause. R: restart.'));
+  const preview = make('div', 'preview'); preview.setAttribute('role', 'img');
+  const previewTiles = Array.from({ length: 16 }, () => { const tile = make('div', 'preview-cell'); preview.append(tile); return tile; });
+  const stats = make('dl', 'stats');
+  const values = new Map<string, HTMLElement>();
+  for (const name of ['score', 'lines', 'level']) {
+    const item = make('div', `stat ${name}`), value = make('dd'); value.dataset.stat = name;
+    item.append(make('dt', '', name), value); stats.append(item); values.set(name, value);
+  }
+  const next = make('section', 'next'); next.append(make('h2', '', 'Next piece'), preview);
+  const buttons = make('div', 'controls'); buttons.append(start, toggle, restart);
+  const instructions = make('section', 'instructions'); instructions.append(make('h2', '', 'How to play'));
+  for (const [keys, meaning] of [['Left / Right', 'Move'], ['Down', 'Soft drop'], ['Up / X', 'Rotate clockwise'], ['Z', 'Rotate counterclockwise'], ['P / Esc', 'Pause / resume'], ['R', 'Restart']]) {
+    const row = make('p'); row.append(make('kbd', '', keys), make('span', '', meaning)); instructions.append(row);
+  }
+  side.append(status, stats, next, buttons, instructions);
   layout.append(stage, side); shell.append(layout); root.replaceChildren(shell);
   const labels = { ready: 'Ready', running: 'Playing', paused: 'Paused', 'game-over': 'Game over' };
   return {
@@ -36,6 +51,12 @@ export function mountView(root: HTMLElement, command: (action: Action) => void) 
       phase = state.phase;
       toggle.hidden = phase !== 'running' && phase !== 'paused';
       toggle.textContent = phase === 'paused' ? 'Resume' : 'Pause';
+      values.get('score')!.textContent = String(state.score).padStart(6, '0');
+      values.get('lines')!.textContent = String(state.lines).padStart(2, '0');
+      values.get('level')!.textContent = String(state.level);
+      preview.setAttribute('aria-label', state.next ? `Next piece: ${state.next}` : 'No next piece');
+      const nextCells = new Set(state.next ? cells({ ...spawn(state.next), x: 0, y: 0 }).map(c => c.y * 4 + c.x) : []);
+      previewTiles.forEach((tile, i) => { tile.className = 'preview-cell' + (nextCells.has(i) ? ` filled piece-${state.next}` : ''); });
       const active = new Set(state.active ? cells(state.active).map(cell => cell.y * 10 + cell.x) : []);
       tiles.forEach((tile, index) => {
         const falling = active.has(index);
