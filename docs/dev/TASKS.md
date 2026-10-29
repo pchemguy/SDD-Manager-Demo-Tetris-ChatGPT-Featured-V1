@@ -6,11 +6,13 @@ This checklist derives executable work from [PLAN](PLAN.md), [SPEC](SPEC.md), [D
 
 - [ ] Phase 1 - Classic browser baseline
     - [ ] Milestone 1.1 - Playable falling-piece loop
-        - [ ] T-001 - Establish pinned tooling and isolated browser execution
+        - [x] T-001 - Establish pinned tooling and isolated browser execution
             Outcome: reproducible TypeScript ES-module compilation and pytest tooling with representative isolated Chromium headless-shell and managed Firefox execution before browser-dependent work.
             Scope: package/config/lock files, project-local setup, minimal build/serve/check interfaces, environment fixtures, ignore rules, docs/dev/ENVIRONMENT.md and validated setup navigation in AGENTS/README. Initialize version 0.1.0. Keep dependencies/browsers/generated state in layout-owned ignored paths and preserve host installations. No game capability is claimed by a synthetic environment page.
             Depends on: none within this list; accepted integrated preparation and verified Phase 1 activation are execution prerequisites.
             Verification: python tools/setup.py; npm run build; python tools/check.py environment. Record selected versions/trusted sources, exact managed binaries/modes, repeated page/context lifecycle, basic rendering and teardown. Follow browser/Playwright recovery policy on actual failures; distinguish provisioning from application acceptance and native from modeled behavior. Establish all suite dispatcher interfaces before dependents use them.
+            Completion evidence: Pinned project-local tooling and managed browsers established. npm run build passed; environment suite: 6 passed, including two isolated input/rendering/teardown cycles per browser and four hostile ZIP cases. Screenshots inspected. Official CfT/Microsoft fallback recovered CDN HTML failures; Firefox uid_map EPERM diagnosed and trusted-local process-only remedy verified. See ENVIRONMENT.md for versions, executable identities, temporary archive failure, commands and limits. Infrastructure task has no claimed gameplay RED/GREEN history; gameplay starts test-first in T-002.
+
         - [ ] T-002 - Implement the immutable model and canonical piece geometry
             Outcome: shared typed snapshots/actions and canonical occupied-cell/rotation/placement operations for S-01/S-02.
             Scope: src/core/model.ts, src/core/geometry.ts, the test-only compiled-module driver and focused pytest geometry fixtures. Use one shape definition for engine and view. Include module/API documentation.
