@@ -25,7 +25,7 @@ The remaining baseline particulars will be presented in PROJECT as proposals: 10
 | Task | Evidence and decision basis |
 | --- | --- |
 | DOCS-001 | All four root files retained byte for byte against initial commit 1d93908b57fcf935f09a5b7446c090b9fdf54f5b; none copied. Manual provenance scaffold and merge verified as below. This commit includes the checked initialization task and HANDOFF; its push/readback and issue closure follow. |
-| DOCS-002 | PROJECT not yet authored or approved. |
+| DOCS-002 | [PROJECT](PROJECT.md) proposed; SHA-256 `87f006ee0894cc98cfee305aa9e926231c0a9aab79211afb46d18e3501dd1bcf`. Human approval remains pending and its task stays unchecked. Checked scope fidelity, document boundaries, Markdown structure and local links; no material unresolved contradiction found. |
 | DOCS-003 through DOCS-008 | Pending; document checkpoints preapproved by autodoc selection, dependent on PROJECT approval and required technical QC. |
 | DOCS-009 | Not selected; autodoc stops before package QC. |
 
@@ -44,4 +44,4 @@ The remaining baseline particulars will be presented in PROJECT as proposals: 10
 
 ## Pending transitions
 
-Publish/read back this initialization commit, then close/read back DOCS-001. Prepare and publish PROJECT as an unapproved proposal. Later documentation integration and milestone closure require DOCS-009 and remain outside the current autodoc stop.
+Initialization was published/read back and DOCS-001 was closed/read back. Publish/read back the PROJECT proposal, then stop for human approval before ARCHITECTURE. Later documentation integration and milestone closure require DOCS-009 and remain outside the current autodoc stop.
