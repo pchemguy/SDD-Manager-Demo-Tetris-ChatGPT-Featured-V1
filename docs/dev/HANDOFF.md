@@ -1,37 +1,22 @@
 # Project handoff
 
-Checkpoint: autodoc/onepass completion through DOCS-008, before whole-package QC.
+Checkpoint: whole-package QC Ready, before documentation integration.
 
-Outcome: PROJECT was explicitly approved, and ARCHITECTURE, DECOMPOSITION, SPEC, PLAN, layout and TASKS were prepared under autodoc preapproval. Required scoped SPEC/design, PLAN/layout and TASKS/PLAN review reports are Ready. This is not a DOCS-009 whole-package QC result, integrated preparation or implemented software.
+The user requested "Do QC and full implement" on 2026-10-29. This advances the former autodoc stop and authorizes all T-001 through T-012 work, verified phase integration and the requested v0.1.0 GitHub release. Product scope is unchanged.
 
-## Workflow and sources
+## Owners and evidence
 
-- Workflow/stage/owner: main development, autodoc/onepass preparation, sdd-manage at the DOCS-008 stop.
-- Governing documents: [PROJECT](PROJECT.md), [ARCHITECTURE](ARCHITECTURE.md), [DECOMPOSITION](DECOMPOSITION.md), [SPEC](SPEC.md), [PLAN](PLAN.md), [layout](layout.md) and [TASKS](TASKS.md).
-- Preparation owners: [DOCS_TASKS](DOCS_TASKS.md) for task checkoffs and [DOCS_PREPARATION](DOCS_PREPARATION.md) for control/decisions/exact document identities.
-- Technical gates: [SPEC review](SPEC-REVIEW-REPORT.md), [PLAN/layout review](PLAN-REVIEW-REPORT.md) and [TASKS review](TASKS-REVIEW-REPORT.md). These do not substitute for whole-package QC.
-- SDD Manager v0.15.4 is available through the installed package and the repository's [.agents/plugins/sdd-manager](../../.agents/plugins/sdd-manager/PLUGIN.md). No application toolchain or browser acceptance environment is claimed provisioned.
+- Governing scope/design/contracts: PROJECT, ARCHITECTURE, DECOMPOSITION and SPEC in this directory.
+- Strategy/allocation/work: PLAN, layout and TASKS. Preparation control and checkoffs: DOCS_PREPARATION and DOCS_TASKS.
+- Whole-package result: [DOCS-QC-REPORT](DOCS-QC-REPORT.md), Ready; scoped source identities and limits are retained there.
+- No application source or runtime environment is claimed delivered yet. SDD Manager v0.15.4 and the repository browser/Playwright policies govern execution.
 
-## Scope and human decisions
+## Branches and authority
 
-- Deliver the classic browser game; modern extensions and Electron delivery are excluded. Share TypeScript game logic/UI and isolate browser integration for future reuse.
-- Lock immediately on failed gravity/soft-drop movement, with no separate lock timer. PROJECT also establishes independent random draws, no-kick rotation, next-piece preview, scoring/levels and pause/lifecycle behavior.
-- The user's "k" on 2026-10-29 approved the published PROJECT proposal at 95e60a638d1dbd33de68b52cc7286d5409f7342f. ARCHITECTURE through TASKS use the existing autodoc document preapproval.
-- Exact stop: after DOCS-008 publication and issue closure, before DOCS-009 package QC, documentation integration and implementation. No implementation range is selected.
-- Tracking is enabled for preparation/implementation by AGENTS.md; publish/read back every owned commit. Keep Standard reports concise while surfacing consequential choices and limitations.
+- Working branch: design-docs/main; creation parent and integration target: main at a60bc0644a4cae7ffa736f1433c154c8cf0f3a0f.
+- All document checkpoints are accepted/preapproved; package QC is explicitly authorized. No additional human checkpoint is pending for the selected full implementation range.
+- Tracking stays enabled. Publish/read back each owned commit and reconcile issue/milestone transitions. Keep reports concise and retain consequential evidence.
 
-## Branches and return
+## Next operations
 
-- Working branch: design-docs/main.
-- Creation parent and eventual integration target: main.
-- Branch-off commit: a60bc0644a4cae7ffa736f1433c154c8cf0f3a0f, the published two-parent manual-provenance scaffold merge.
-- Main contains only the initial repository and that preliminary scaffold merge; product preparation has not been integrated.
-- Retain design-docs/ai-logs as the manual provenance branch; no transcript was created or selected for current authority.
-- No implementation/phase branch or suspended implementation exists.
-
-## Pending work and next action
-
-- The DOCS-008 completion commit still requires push/readback and issue #8 closure as of this snapshot. Reconcile actual later effects rather than repeating completed operations.
-- DOCS-001 through DOCS-007 were published/read back and their issues closed/read back. DOCS-009 and milestone sdd-docs-main remain open; no implementation phase objects are activated.
-- After the DOCS-008 effects settle, wait for human direction. The next preparation operation is whole-package QC, not a repeat of already accepted document checkpoints. Passing package QC must precede verified published documentation integration and preparation milestone closure.
-- TASKS contains one phase, three delivery milestones and a final review milestone, with 12 tasks. Source/test/tool paths and commands remain planned. v0.1.0 is the intended first software release, not a published release.
+Publish this QC result, close/read back issue #9, then explicitly merge preparation into main, verify/publish it and close/read back sdd-docs-main. Activate Phase 1 before task edits/tests; create its phase branch from the verified integrated baseline. Keep future/modern/Electron scope excluded. Complete each task with evidence/checkoff in its own commit, publish it and reconcile tracking before advancing.
