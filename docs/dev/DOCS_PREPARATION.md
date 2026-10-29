@@ -4,10 +4,10 @@
 
 - Mode: autodoc/onepass, selected by the user's project request on 2026-10-29.
 - Scope: classic browser-based Tetris; Electron delivery remains future scope.
-- Approval basis: PROJECT requires human approval. ARCHITECTURE through TASKS checkpoints are preapproved by autodoc selection. Product clarifications do not approve an unseen document.
+- Approval basis: PROJECT was explicitly approved on 2026-10-29. ARCHITECTURE through TASKS checkpoints are preapproved by autodoc selection. Product clarifications do not approve an unseen document.
 - Tracking: enabled for preparation and implementation by root AGENTS.md. All nine standard issues and their sdd-docs-main milestone associations were verified before repository writes.
 - Publication: push and exact-ref readback after every owned commit.
-- Next boundary: publish PROJECT for human review, then stop. After approval, continue through DOCS-008 and stop before DOCS-009 package QC or implementation.
+- Next boundary: continue through DOCS-008 and stop before DOCS-009 package QC or implementation.
 - Reporting: concise Standard reporting; consequential choices and checkpoints remain visible.
 
 ## Scope and decisions
@@ -18,15 +18,20 @@ The user requested a browser classic Tetris game and future platform reuse, then
 - Share TypeScript game logic and UI; separate browser integration for future Electron reuse. Electron delivery is outside the current scope.
 - Lock when a gravity or soft-drop attempt cannot move a piece downward; there is no separate lock timer.
 
-The remaining baseline particulars will be presented in PROJECT as proposals: 10 by 20 board, seven tetrominoes, independent random selection, rotation without wall kicks, next-piece preview, scoring/levels, pause/restart and game over. These have not been separately confirmed by the human. Precise contracts belong in SPEC after brief approval.
+The approved PROJECT also establishes: 10 by 20 board, seven tetrominoes, independent random selection, rotation without wall kicks, next-piece preview, scoring/levels, pause/restart and game over. These particulars are accepted through approval of the published brief. Precise contracts belong in SPEC after brief approval.
 
 ## Decisions and document evidence
 
 | Task | Evidence and decision basis |
 | --- | --- |
 | DOCS-001 | All four root files retained byte for byte against initial commit 1d93908b57fcf935f09a5b7446c090b9fdf54f5b; none copied. Manual provenance scaffold and merge verified as below. This commit includes the checked initialization task and HANDOFF; its push/readback and issue closure follow. |
-| DOCS-002 | [PROJECT](PROJECT.md) proposed; SHA-256 `87f006ee0894cc98cfee305aa9e926231c0a9aab79211afb46d18e3501dd1bcf`. Human approval remains pending and its task stays unchecked. Checked scope fidelity, document boundaries, Markdown structure and local links; no material unresolved contradiction found. |
-| DOCS-003 through DOCS-008 | Pending; document checkpoints preapproved by autodoc selection, dependent on PROJECT approval and required technical QC. |
+| DOCS-002 | PROJECT approved by the user's "k" on 2026-10-29, referring to published proposal 95e60a638d1dbd33de68b52cc7286d5409f7342f. Accepted SHA-256 `87f006ee0894cc98cfee305aa9e926231c0a9aab79211afb46d18e3501dd1bcf`; document bytes unchanged. |
+| DOCS-003 | Pending under autodoc preapproval; required technical QC remains applicable. |
+| DOCS-004 | Pending under autodoc preapproval; required technical QC remains applicable. |
+| DOCS-005 | Pending under autodoc preapproval; required technical QC remains applicable. |
+| DOCS-006 | Pending under autodoc preapproval; required technical QC remains applicable. |
+| DOCS-007 | Pending under autodoc preapproval; required technical QC remains applicable. |
+| DOCS-008 | Pending under autodoc preapproval; required technical QC remains applicable. |
 | DOCS-009 | Not selected; autodoc stops before package QC. |
 
 ## Initialization
@@ -44,4 +49,4 @@ The remaining baseline particulars will be presented in PROJECT as proposals: 10
 
 ## Pending transitions
 
-Initialization was published/read back and DOCS-001 was closed/read back. Publish/read back the PROJECT proposal, then stop for human approval before ARCHITECTURE. Later documentation integration and milestone closure require DOCS-009 and remain outside the current autodoc stop.
+Publish/read back this DOCS-002 completion and close/read back issue #2 before dependent preparation. Then continue under existing autodoc preapproval, stopping after DOCS-008. DOCS-009, documentation integration and implementation remain outside that stop.
