@@ -49,3 +49,9 @@ Follow `sdd-manage`'s preparation and phase-activation workflows for required tr
 ## Project guidance
 
 Maintain project-specific navigation and validated setup/check commands here as they become established. Do not invent commands, paths, requirements or completion claims.
+
+## Current project navigation
+
+The accepted scope is [classic browser Tetris](docs/dev/PROJECT.md), with [ARCHITECTURE](docs/dev/ARCHITECTURE.md), [DECOMPOSITION](docs/dev/DECOMPOSITION.md), [SPEC](docs/dev/SPEC.md), [PLAN](docs/dev/PLAN.md), [layout](docs/dev/layout.md) and the owning [TASKS](docs/dev/TASKS.md). Preparation decisions and technical gate evidence are in [DOCS_PREPARATION](docs/dev/DOCS_PREPARATION.md).
+
+The source/test/tool paths and commands declared in layout and TASKS are planned, not implemented or validated. No application setup/test command is established yet. Do not treat command examples as successful execution evidence. Recover the actual stopping boundary through HANDOFF and later owning records before starting work.

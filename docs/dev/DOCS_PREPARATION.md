@@ -7,7 +7,7 @@
 - Approval basis: PROJECT was explicitly approved on 2026-10-29. ARCHITECTURE through TASKS checkpoints are preapproved by autodoc selection. Product clarifications do not approve an unseen document.
 - Tracking: enabled for preparation and implementation by root AGENTS.md. All nine standard issues and their sdd-docs-main milestone associations were verified before repository writes.
 - Publication: push and exact-ref readback after every owned commit.
-- Next boundary: continue through DOCS-008 and stop before DOCS-009 package QC or implementation.
+- Next boundary: autodoc DOCS-008 stop. DOCS-009 whole-package QC, documentation integration and implementation are not selected.
 - Reporting: concise Standard reporting; consequential choices and checkpoints remain visible.
 
 ## Scope and decisions
@@ -31,7 +31,7 @@ The approved PROJECT also establishes: 10 by 20 board, seven tetrominoes, indepe
 | DOCS-005 | Autodoc preapproval applies. [SPEC](SPEC.md) SHA-256 `91dc68e3dc49391df3559901bb4b922aa8c2aeb1c6ed421fd6f1b5e4309ec9f0`; author scope/consistency review and Markdown/local-link checks passed. Required technical gate: [SPEC-REVIEW-REPORT.md](SPEC-REVIEW-REPORT.md), Ready for its stated scope. |
 | DOCS-006 | Autodoc preapproval applies. [PLAN](PLAN.md) SHA-256 `cb466bf4148d5a654766b8288f6462e5d1185c55b0ea21529822f517fe11b17d`; author scope/consistency review and Markdown/local-link checks passed. Required technical gate: [PLAN-REVIEW-REPORT.md](PLAN-REVIEW-REPORT.md), Ready for its stated scope. |
 | DOCS-007 | Autodoc preapproval applies. [layout](layout.md) SHA-256 `c4ca6fd5077ec0a8ce6a552968de21946b208b4bb5410bb0f5e43e9ca9340481`; author scope/consistency review and Markdown/local-link checks passed. Required technical gate: [PLAN-REVIEW-REPORT.md](PLAN-REVIEW-REPORT.md), Ready for its stated scope. |
-| DOCS-008 | Pending under autodoc preapproval; required technical QC remains applicable. |
+| DOCS-008 | Autodoc preapproval applies. [TASKS](TASKS.md) SHA-256 `654cbbf1260933d4f8acc684c9fb48fb76b6ebf2e625e5d9538fd261d6b38b02`; author scope/consistency review and Markdown/local-link checks passed. Required technical gate: [TASKS-REVIEW-REPORT.md](TASKS-REVIEW-REPORT.md), Ready for its stated scope. |
 | DOCS-009 | Not selected; autodoc stops before package QC. |
 
 ## Initialization
@@ -49,4 +49,4 @@ The approved PROJECT also establishes: 10 by 20 board, seven tetrominoes, indepe
 
 ## Pending transitions
 
-Publish/read back this DOCS-007 completion and close/read back issue #7 before dependent preparation. Then continue under existing autodoc preapproval, stopping after DOCS-008. DOCS-009, documentation integration and implementation remain outside that stop.
+Publish/read back this DOCS-008 completion and close/read back issue #8, then stop. DOCS-009 and the sdd-docs-main milestone must remain open. Whole-package QC, documentation integration into main and implementation require subsequent direction. No implementation objects have been activated.
