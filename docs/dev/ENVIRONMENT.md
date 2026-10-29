@@ -46,3 +46,7 @@ TETRIS_FIREFOX_CONTENT_SANDBOX=1 python tools/check.py environment
 ```
 
 Setup/check scripts consistently set an absolute project-owned PLAYWRIGHT_BROWSERS_PATH. Full Chrome/headed/native-window focus, Windows-native development and Electron execution are unverified. These synthetic capability probes establish no application acceptance.
+
+## Milestone 1.1 supervision recheck
+
+The Linux check runner also verifies owned detached-child timeout cleanup and normal adopted-child reaping. The actual host omits the task/children procfs interface; PPid verification and NSpid translation identify only the owner's children. Both controlled regression cases pass, and the complete implemented suite exits successfully after cleanup. Windows-native supervision remains unverified.

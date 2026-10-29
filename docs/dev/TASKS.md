@@ -5,7 +5,7 @@ This checklist derives executable work from [PLAN](PLAN.md), [SPEC](SPEC.md), [D
 ## Phase 1 - Classic browser baseline
 
 - [ ] Phase 1 - Classic browser baseline
-    - [ ] Milestone 1.1 - Playable falling-piece loop
+    - [x] Milestone 1.1 - Playable falling-piece loop
         - [x] T-001 - Establish pinned tooling and isolated browser execution
             Outcome: reproducible TypeScript ES-module compilation and pytest tooling with representative isolated Chromium headless-shell and managed Firefox execution before browser-dependent work.
             Scope: package/config/lock files, project-local setup, minimal build/serve/check interfaces, environment fixtures, ignore rules, docs/dev/ENVIRONMENT.md and validated setup navigation in AGENTS/README. Initialize version 0.1.0. Keep dependencies/browsers/generated state in layout-owned ignored paths and preserve host installations. No game capability is claimed by a synthetic environment page.
@@ -34,11 +34,13 @@ This checklist derives executable work from [PLAN](PLAN.md), [SPEC](SPEC.md), [D
             Verification: npm run build; python tools/check.py core; python tools/check.py browser. Exercise the real built app in both selected headless engines, inspect a rendered board screenshot, deliver real keyboard/button input and verify one host loop with cleanup. Demonstrate failed-down locking and a real row clear using controlled test RNG/fixtures without shipping a debug endpoint/global.
             Completion evidence: Observed two browser RED failures because the served scaffold lacked Start. Implemented shared DOM rendering and browser-only keyboard/clock composition with a single disposable loop. npm run build passed; core: 44 passed; browser: 6 passed across managed Chromium shell and Firefox with the documented host remedy. Actual native keyboard/button flows, support contact versus failed-down locking, a two-row clear, restart and real gravity passed. Controlled cooperating-host fixture verified one loop and idempotent disposal; that fixture is distinct from native input evidence. Both rendered board screenshots inspected and documented serve CLI probed over HTTP. Scoring/preview/pause completion remains in milestone 1.2.
 
-        - [ ] T-005 - Review and report the playable-loop milestone
+        - [x] T-005 - Review and report the playable-loop milestone
             Outcome: whole-capability code review, scoped acceptance/regressions, blocker repair and a verified 1.1 demonstration.
             Scope: all delivered 1.1 code and its dependencies; docs/dev/reports/phases/1/1.1.md and HANDOFF. Assess rules/UI/platform ownership separately from test execution. Record control/cadence usability observations and any human steering request without changing scope automatically.
             Depends on: T-001, T-002, T-003 and T-004.
             Verification: npm run build; python tools/check.py environment; python tools/check.py core; python tools/check.py browser. Assess scoped S-01 to S-04/base S-05 and the working browser path, explicitly retaining 1.2/1.3 deferrals. Resolve blockers, retain review/check evidence and a TODO section, update HANDOFF, then close the milestone only after all constituent issues and its exits are verified.
+            Completion evidence: Whole-milestone code review completed separately from execution. Resolved R1: detached children escaped group-only timeout cleanup; observed failing reproduction, then verified namespace-aware Linux subreaping and normal-child reaping. npm run build passed; complete implemented suite: 58 passed with documented Firefox remedy. Real two-browser play/gravity, screenshots and controlled one-loop/disposal evidence pass. Report docs/dev/reports/phases/1/1.1.md records exact source identities, scope, correction and limits; TODO None. Milestone 1.1 exits and early live-play demonstration verified; 1.2/1.3 deferrals retained.
+
     - [ ] Milestone 1.2 - Complete classic experience
         - [ ] T-006 - Complete scoring and level-dependent gravity
             Outcome: S-05 points/line totals/levels and the resulting next-piece gravity interval, preserving existing lock/spawn behavior.
