@@ -42,11 +42,13 @@ This checklist derives executable work from [PLAN](PLAN.md), [SPEC](SPEC.md), [D
             Completion evidence: Whole-milestone code review completed separately from execution. Resolved R1: detached children escaped group-only timeout cleanup; observed failing reproduction, then verified namespace-aware Linux subreaping and normal-child reaping. npm run build passed; complete implemented suite: 58 passed with documented Firefox remedy. Real two-browser play/gravity, screenshots and controlled one-loop/disposal evidence pass. Report docs/dev/reports/phases/1/1.1.md records exact source identities, scope, correction and limits; TODO None. Milestone 1.1 exits and early live-play demonstration verified; 1.2/1.3 deferrals retained.
 
     - [ ] Milestone 1.2 - Complete classic experience
-        - [ ] T-006 - Complete scoring and level-dependent gravity
+        - [x] T-006 - Complete scoring and level-dependent gravity
             Outcome: S-05 points/line totals/levels and the resulting next-piece gravity interval, preserving existing lock/spawn behavior.
             Scope: core session progression and focused fixtures/module documentation; use the pre-clear level for scoring and resulting level for the newly spawned countdown.
             Depends on: T-005 and completion/closure of milestone 1.1.
             Verification: npm run build; python tools/check.py core. Cover 0-4 clears, nonadjacent row compaction, level-boundary crossings, minimum interval, unchanged score on soft drop and post-clear top-out/statistics. Retain focused RED/GREEN and existing-session regression evidence.
+            Completion evidence: Observed 8 behavioral RED failures after correcting a fixture setup error, then implemented 0/40/100/300/1200 pre-clear-level scoring, line totals, ten-line level progression and resulting spawn/gravity intervals with a 100 ms floor. npm run build passed; core suite: 53 passed. Coverage includes old-level awards crossing boundaries, nonadjacent compaction, no soft-drop points, minimum speed and final statistics on top-out with no replacement draw. Prior immutable session/geometry cases remain green. Statistics presentation remains T-008.
+
         - [ ] T-007 - Complete pause, page lifecycle and error containment
             Outcome: preserved gravity remainder, explicit resume, idempotent hide/blur pause, correct input filtering and bounded host disposal/fatal-error behavior for S-04/S-06/S-08.
             Scope: engine pause transitions, browser host/input and cooperating clock/lifecycle/error tests. Keep standard DOM callbacks reusable and do not add a lock timer or input-repeat timer.

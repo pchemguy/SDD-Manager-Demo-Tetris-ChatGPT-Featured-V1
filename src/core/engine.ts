@@ -3,9 +3,10 @@ import type { Action, GameState, Kind, RandomSource } from './model.js';
 import { cells, fits, rotate, spawn } from './geometry.js';
 const KINDS: readonly Kind[] = ['I', 'J', 'L', 'O', 'S', 'T', 'Z'];
 const emptyRow = (): (Kind | null)[] => Array<Kind | null>(10).fill(null);
+const interval = (level: number): number => Math.max(100, 1000 - 75 * (level - 1));
 /** Create an idle game without consuming random values. */
 export function createGame(): GameState {
-  return { phase: 'ready', board: Array.from({ length: 20 }, emptyRow), active: null, next: null, score: 0, lines: 0, level: 1, remainingMs: 1000 };
+  return { phase: 'ready', board: Array.from({ length: 20 }, emptyRow), active: null, next: null, score: 0, lines: 0, level: 1, remainingMs: interval(1) };
 }
 function draw(random: RandomSource): Kind {
   const value = random();
@@ -19,11 +20,17 @@ function downward(state: GameState, random: RandomSource): GameState {
   const board = state.board.map(row => [...row]);
   for (const { x, y } of cells(state.active)) board[y][x] = state.active.kind;
   const survivors = board.filter(row => row.some(cell => cell === null));
-  const resolved = [...Array.from({ length: 20 - survivors.length }, emptyRow), ...survivors];
+  const cleared = 20 - survivors.length;
+  const resolved = [...Array.from({ length: cleared }, emptyRow), ...survivors];
+  const basePoints = [0, 40, 100, 300, 1200][cleared];
+  if (basePoints === undefined) throw new Error('Invalid board clear count');
+  const lines = state.lines + cleared, level = Math.floor(lines / 10) + 1;
+  // Award using the pre-clear level; spawn uses the resulting level's cadence.
+  const complete = { ...state, board: resolved, score: state.score + basePoints * state.level, lines, level, remainingMs: interval(level) };
   if (!state.next) throw new Error('Running game requires a queued piece');
   const active = spawn(state.next);
-  if (!fits(resolved, active)) return { ...state, board: resolved, active: null, phase: 'game-over', remainingMs: 1000 };
-  return { ...state, board: resolved, active, next: draw(random), remainingMs: 1000 };
+  if (!fits(resolved, active)) return { ...complete, active: null, phase: 'game-over' };
+  return { ...complete, active, next: draw(random) };
 }
 /** Apply one validated action atomically; illegal player placements are no-ops. */
 export function transition(state: GameState, action: Action, random: RandomSource): GameState {
@@ -44,7 +51,7 @@ export function transition(state: GameState, action: Action, random: RandomSourc
   if (action.type === 'softDrop') return downward(state, random);
   if (action.type === 'advance') {
     if (action.elapsedMs < state.remainingMs) return { ...state, remainingMs: state.remainingMs - action.elapsedMs };
-    return downward({ ...state, remainingMs: 1000 }, random);
+    return downward({ ...state, remainingMs: interval(state.level) }, random);
   }
   return state;
 }
