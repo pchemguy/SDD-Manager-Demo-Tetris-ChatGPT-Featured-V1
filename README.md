@@ -1,28 +1,22 @@
-# Browser-based classic Tetris
+# Classic Tetris
 
-A classic single-player browser game under development. Shared TypeScript logic and UI are intended for future platform reuse; Electron delivery is outside the current scope.
+A single-player classic Tetris browser app with seven independent random pieces, one next-piece preview, scoring, level progression and pause/resume. A piece locks when a gravity or soft-drop attempt cannot move it down; there is no separate lock timer. Modern extensions and Electron delivery are outside this scope.
 
-The [project brief](docs/dev/PROJECT.md) defines the accepted project scope. The live browser loop supports movement, rotation, soft drop, failed-downward locking, row clearing and restart. The complete classic experience and release packaging are under development.
+## Play and deploy
 
-Development uses [SDD Manager](SDD-MANAGER.md). See the [AI-assisted development disclosure](AI_DISCLOSURE.md).
+Use the deployable browser ZIP attached to a GitHub release. Follow [installation, controls and static hosting instructions](docs/INSTALL.md). Players need no Node.js installation. Copy the built files to an ordinary HTTP(S) host, at its root or a nested path. Direct file-URL loading is unsupported.
 
 ## Development
 
-Use the project-local pinned tools:
+Shared TypeScript rules are in src/core; the DOM UI is in src/shared. Browser clocks, lifecycle, keyboard mapping and entry are isolated in src/platform/browser for future platform reuse.
 
 ```text
 python tools/setup.py
 npm run build
-python tools/check.py environment
-```
-
-See [environment evidence and bounded recovery](docs/dev/ENVIRONMENT.md) for observed modes, the process-local Firefox remedy and official download fallback. A production browser player needs no Node.js installation.
-
-## Play from a build
-
-```text
-npm run build
+python tools/check.py all
 python tools/serve.py --root dist --port 4173
 ```
 
-Open http://127.0.0.1:4173 and select Start. Use Left/Right to move, Down to soft drop, Up or X to rotate clockwise, Z to rotate counterclockwise and R to restart. Contact alone leaves a piece active; a failed gravity or soft-drop attempt locks it.
+Open http://127.0.0.1:4173/ and select Start. See [environment evidence](docs/dev/ENVIRONMENT.md) for pinned versions, the official download fallback and the process-local Firefox remedy required on the recorded Linux host. Provisioning evidence and application acceptance are separate. The build includes only local modules/styles/assets and the license notice.
+
+The [project brief](docs/dev/PROJECT.md), [specification](docs/dev/SPEC.md) and [tasks](docs/dev/TASKS.md) define scope and evidence. Development uses [SDD Manager](SDD-MANAGER.md); see the [AI-assisted development disclosure](AI_DISCLOSURE.md).

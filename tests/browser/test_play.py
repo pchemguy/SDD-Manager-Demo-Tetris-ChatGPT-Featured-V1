@@ -41,7 +41,12 @@ def test_native_gravity_moves_the_live_piece(page, server_url):
     page.add_init_script('Math.random = () => 0.5;')
     page.goto(server_url)
     page.get_by_role('button',name='Start',exact=True).click()
-    page.wait_for_function("Number(document.querySelector('.board .active').dataset.index) >= 14")
+    # Poll via the debugger API; wait_for_function's in-page eval violates CSP.
+    import time
+    deadline = time.monotonic() + 4
+    while active_positions(page)[0] < 14 and time.monotonic() < deadline:
+        page.wait_for_timeout(50)
+    assert active_positions(page)[0] >= 14
     assert len(active_positions(page))==4
 
 def test_composed_host_owns_one_loop_and_disposes(page, server_url):
