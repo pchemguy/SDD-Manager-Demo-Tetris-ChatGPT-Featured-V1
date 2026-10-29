@@ -30,7 +30,7 @@ The approved PROJECT also establishes: 10 by 20 board, seven tetrominoes, indepe
 | DOCS-004 | Autodoc preapproval applies. [DECOMPOSITION](DECOMPOSITION.md) SHA-256 `c4539e9930a0c626e36abfc9be1ca5a40bd883e8aacd76ea92b3e46fb51fe5b6`; author scope/consistency review and Markdown/local-link checks passed. |
 | DOCS-005 | Autodoc preapproval applies. [SPEC](SPEC.md) SHA-256 `91dc68e3dc49391df3559901bb4b922aa8c2aeb1c6ed421fd6f1b5e4309ec9f0`; author scope/consistency review and Markdown/local-link checks passed. Required technical gate: [SPEC-REVIEW-REPORT.md](SPEC-REVIEW-REPORT.md), Ready for its stated scope. |
 | DOCS-006 | Autodoc preapproval applies. [PLAN](PLAN.md) SHA-256 `cb466bf4148d5a654766b8288f6462e5d1185c55b0ea21529822f517fe11b17d`; author scope/consistency review and Markdown/local-link checks passed. Required technical gate: [PLAN-REVIEW-REPORT.md](PLAN-REVIEW-REPORT.md), Ready for its stated scope. |
-| DOCS-007 | Pending under autodoc preapproval; required technical QC remains applicable. |
+| DOCS-007 | Autodoc preapproval applies. [layout](layout.md) SHA-256 `c4ca6fd5077ec0a8ce6a552968de21946b208b4bb5410bb0f5e43e9ca9340481`; author scope/consistency review and Markdown/local-link checks passed. Required technical gate: [PLAN-REVIEW-REPORT.md](PLAN-REVIEW-REPORT.md), Ready for its stated scope. |
 | DOCS-008 | Pending under autodoc preapproval; required technical QC remains applicable. |
 | DOCS-009 | Not selected; autodoc stops before package QC. |
 
@@ -49,4 +49,4 @@ The approved PROJECT also establishes: 10 by 20 board, seven tetrominoes, indepe
 
 ## Pending transitions
 
-Publish/read back this DOCS-006 completion and close/read back issue #6 before dependent preparation. Then continue under existing autodoc preapproval, stopping after DOCS-008. DOCS-009, documentation integration and implementation remain outside that stop.
+Publish/read back this DOCS-007 completion and close/read back issue #7 before dependent preparation. Then continue under existing autodoc preapproval, stopping after DOCS-008. DOCS-009, documentation integration and implementation remain outside that stop.

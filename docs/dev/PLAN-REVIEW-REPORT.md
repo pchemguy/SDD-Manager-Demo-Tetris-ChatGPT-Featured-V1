@@ -2,7 +2,7 @@
 
 ## Current gate
 
-State: Ready for layout preparation. Strategy conformance passes. TASKS readiness remains Blocked pending combined PLAN/layout review. No strategy blocker remains. This is not whole-package QC or implementation acceptance.
+State: Ready for TASKS derivation after combined PLAN/layout review. No confirmed blocker remains. This is not whole-package QC or implementation acceptance.
 
 ## Reviewed identities
 
@@ -31,3 +31,17 @@ Reviewed on 2026-10-29 by the author/coordinator under sdd-plan. Compared all SP
 Review thresholds are delegated to TASKS using the established lifecycle rule; every milestone retains a whole-capability code review/testing/report exit. Feasible headless checks are required; unavailable native/full-browser evidence is reported separately. No unsupported native gate blocks browser artifact delivery. Strategy is distinct from task IDs and file placement.
 
 Findings: None confirmed in strategy scope. Layout coverage is an explicit pending gate rather than an omitted passed check. No code, provisioning, build or runtime check was performed by this assessment.
+
+## Revision 1 - Combined PLAN/layout assessment
+
+The author/coordinator reviewed the physical allocation on 2026-10-29. This adds the required layout coverage; it does not invent an initial strategy defect or replace the initial review history.
+
+- `PLAN.md` SHA-256 `cb466bf4148d5a654766b8288f6462e5d1185c55b0ea21529822f517fe11b17d`.
+- `layout.md` SHA-256 `c4ca6fd5077ec0a8ce6a552968de21946b208b4bb5410bb0f5e43e9ca9340481`.
+- `ARCHITECTURE.md` SHA-256 `b8073650a2f260a759f8d7b2c67949458ab41b515a91790c2ced0e2bc6a4743d`.
+- `DECOMPOSITION.md` SHA-256 `c4539e9930a0c626e36abfc9be1ca5a40bd883e8aacd76ea92b3e46fb51fe5b6`.
+- `SPEC.md` SHA-256 `91dc68e3dc49391df3559901bb4b922aa8c2aeb1c6ed421fd6f1b5e4309ec9f0`.
+
+All engine/view/host responsibilities have source and test homes. Build, setup, verification and packaging scripts have explicit owners; development dependencies and browsers are separated from generated build/release paths. The layout supports early browser integration, deterministic engine tests and extracted-package verification without a Node runtime for players. Existing plugin, instruction, license and manual provenance paths are preserved. Proposed paths/commands are identified as unimplemented.
+
+Rechecked strategy coverage and phase/milestone identities: unchanged; the three delivery milestones and one excluded review milestone remain proportionate. Confirmed findings: none. Layout and links are checked with the owning commit. Result: combined gate Ready; initial pending layout coverage is resolved. No runtime command is represented as validated.
