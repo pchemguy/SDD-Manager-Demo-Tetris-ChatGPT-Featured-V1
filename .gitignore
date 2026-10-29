@@ -1,3 +1,12 @@
 .obsidian
 .trash
 *.tkn
+.tools/
+.work/
+node_modules/
+dist/
+artifacts/
+__pycache__/
+
+/RELEASE-NOTES.md
+/.release-highlights.md
