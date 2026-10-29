@@ -19,6 +19,14 @@ python tools/serve.py --root dist --port 4173
 
 Open http://127.0.0.1:4173/ and select Start. See [environment evidence](docs/dev/ENVIRONMENT.md) for pinned versions, the official download fallback and the process-local Firefox remedy required on the recorded Linux host. Provisioning evidence and application acceptance are separate. The build includes only local modules/styles/assets and the license notice.
 
+Prepare a candidate archive and checksum under artifacts/:
+
+```text
+python tools/package.py
+```
+
+The command rebuilds first. Metadata identifies the current commit and whether source changes are present. Final release preparation uses python tools/package.py --require-clean from the pinned release commit. The ZIP contains only web/, INSTALL.md, release.json and SHA256SUMS. Stable asset names are classic-tetris-browser.zip and classic-tetris-browser.zip.sha256.
+
 Browser acceptance can target another built or extracted web directory without changing the app:
 
 ```text
