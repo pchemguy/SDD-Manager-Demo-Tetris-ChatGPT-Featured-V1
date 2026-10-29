@@ -42,6 +42,8 @@ export function transition(state: GameState, action: Action, random: RandomSourc
     if (action.type === 'start' && state.phase !== 'ready') return state;
     return { ...createGame(), phase: 'running', active: spawn(draw(random)), next: draw(random) };
   }
+  if (action.type === 'pause') return state.phase === 'running' ? { ...state, phase: 'paused' } : state;
+  if (action.type === 'resume') return state.phase === 'paused' ? { ...state, phase: 'running' } : state;
   if (state.phase !== 'running') return state;
   if (!state.active) throw new Error('Running game requires an active piece');
   if (action.type === 'move' || action.type === 'rotate') {

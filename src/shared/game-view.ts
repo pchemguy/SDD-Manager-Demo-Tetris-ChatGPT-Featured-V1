@@ -19,16 +19,23 @@ export function mountView(root: HTMLElement, command: (action: Action) => void) 
   const side = make('aside', 'side');
   const status = make('p', 'status'); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');
   const start = make('button', 'primary', 'Start'), restart = make('button', '', 'Restart');
-  start.type = restart.type = 'button';
+  const toggle = make('button', 'toggle', 'Pause');
+  let phase: GameState['phase'] = 'ready';
+  const pause = () => command({ type: phase === 'paused' ? 'resume' : 'pause' });
+  toggle.type = start.type = restart.type = 'button';
+  toggle.addEventListener('click', pause);
   const begin = () => command({ type: 'start' }), reset = () => command({ type: 'restart' });
   start.addEventListener('click', begin); restart.addEventListener('click', reset);
-  side.append(status, start, restart, make('p', 'instructions', 'Arrows: move / soft drop. Up or X: clockwise. Z: counterclockwise. R: restart.'));
+  side.append(status, start, toggle, restart, make('p', 'instructions', 'Arrows: move / soft drop. Up or X: clockwise. Z: counterclockwise. P / Escape: pause. R: restart.'));
   layout.append(stage, side); shell.append(layout); root.replaceChildren(shell);
   const labels = { ready: 'Ready', running: 'Playing', paused: 'Paused', 'game-over': 'Game over' };
   return {
     surface,
     /** Render authoritative cells without inferring legal moves or game rules. */
     render(state: GameState) {
+      phase = state.phase;
+      toggle.hidden = phase !== 'running' && phase !== 'paused';
+      toggle.textContent = phase === 'paused' ? 'Resume' : 'Pause';
       const active = new Set(state.active ? cells(state.active).map(cell => cell.y * 10 + cell.x) : []);
       tiles.forEach((tile, index) => {
         const falling = active.has(index);
@@ -40,7 +47,9 @@ export function mountView(root: HTMLElement, command: (action: Action) => void) 
       overlay.textContent = label; overlay.hidden = state.phase === 'running';
       start.hidden = state.phase !== 'ready';
     },
+    /** Replace a partially rendered session with a safe recovery message. */
+    error() { const alert = make('p', 'fatal', 'Game unavailable. Reload to retry.'); alert.setAttribute('role', 'alert'); shell.replaceChildren(alert); },
     /** Remove owned callbacks and nodes while preserving the caller's root. */
-    dispose() { start.removeEventListener('click', begin); restart.removeEventListener('click', reset); shell.remove(); },
+    dispose() { toggle.removeEventListener('click', pause); start.removeEventListener('click', begin); restart.removeEventListener('click', reset); shell.remove(); },
   };
 }
