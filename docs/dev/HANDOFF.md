@@ -1,17 +1,23 @@
 # Project handoff
 
-Checkpoint: direct main release boundary for Classic Tetris v0.1.0.
+Checkpoint: the full authorized classic-browser scope and v0.1.0 release are complete.
 
-All twelve implementation tasks, the complete browser phase, four implementation milestones and their issues are verified, published and closed. The phase commit a453ad7aff7394802a539613fb27993689fafc28 was explicitly merged into its creation parent main at 86ccc9d07e0c85387d2e86e360f7743b2078a5cb; the merged build and full 106-test suite passed, and the integration was published/read back. All twelve task closing commits passed result/evidence/initial-checkbox/report composition audit. Phase/final reports retain the complete review and resolved findings.
+All twelve tasks, four implementation milestones and the browser phase are implemented, reviewed, verified, individually committed/published and closed in GitHub tracking. Twelve closing commits passed result/evidence/initial-checkbox/report composition audit. The final tracking audit confirmed all twelve issue associations and all four closed milestones. No implementation or publication effect remains pending.
 
-## Release authority and source
+## Integration and release
 
-The user authorized the full accepted classic browser scope, QC, main integration and a release after the verified phase. Version 0.1.0 agrees across package/lock/install/notes. This direct default-branch release commit uses the exact retained RELEASE-NOTES.md body. Initial baseline is null: complete local history and remote tag/release inventories show no preceding release. Highlights were assessed through the complete integration, including all reachable preparation and implementation identities. Modern extensions and Electron remain excluded; no lock timer was introduced.
+Phase tip a453ad7aff7394802a539613fb27993689fafc28 was explicitly merged into its creation parent main at 86ccc9d07e0c85387d2e86e360f7743b2078a5cb; original branch-off fae386357a66d931b476ef66e3788b893a48a2c1. Merged build and full 106-test suite passed before verified main publication.
 
-## Remaining effects
+The direct default-branch release commit is 1d84b4e22934eafa68fa80cd52bf490b73520cee; annotated v0.1.0 object 846dd080488be5f867501d392aa89dd4913d563a peels to that exact commit. Commit/tag/GitHub body agrees byte-for-byte with retained RELEASE-NOTES.md (SHA-256 b30e82382c1639af40a98d626743d8d20ae1b69f622169245c84f3374edfe420). The initial release baseline is null. GitHub release 427581915 is published stable and read back as latest: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Featured-V1/releases/tag/v0.1.0.
 
-Publish/read back this release commit, then confirm its default first-parent placement and notes/body agreement. Build/package twice from this exact clean commit, verify hashes/metadata and run full/extracted-byte acceptance. Only then publish/read back annotated v0.1.0 at this commit, create/reuse the matching GitHub draft, upload and verify both stable assets, publish and read back body/assets/latest and downloaded bytes. Retain the complete notes; remove only the owned internal highlights checkpoint after verified published-body consumption. Never move a published tag or substitute a later source. No hosted release success is claimed by this Git checkpoint.
+Both required assets were uploaded, inventoried, downloaded before and after publication, and matched byte-for-byte SHA-256/size expectations. The downloaded ZIP manifest/source metadata were revalidated. The owned internal highlights checkpoint was removed only after published-body verification; complete notes remain retained. This post-release evidence commit changes reports only and does not move the tag or release source.
 
-## Verification limits
+## Final verification
 
-Managed Chromium headless shell and Firefox on Linux are exercised; the documented Firefox process-local remedy is test-only. Visibility/blur event delivery is modeled. Native OS-window lifecycle, headed/full-browser, Windows-native and Electron remain unverified/excluded. There is no CI/signing/store package claim. This is a static browser release with no player Node dependency.
+Two clean builds/packages from the exact release commit produced identical 13,011-byte ZIPs. ZIP SHA-256: 6b6c9f3b0fcb767055411592caa632b7a6154fadede5ad105c6d0629b06a1afa. Final complete suite: 106 passed without warnings/skips; an additional 30 browser tests passed against the actual final archive extracted under a nested deployment URL. Both managed headless engines and required viewport screenshots were exercised/inspected. Deployment instructions, license, source/version/dirty=false metadata, payload hashes and external checksum are included/verified.
+
+## Scope, limits and next authority
+
+Accepted classic behavior is complete: independent draws, no-kick rotation, lock on failed downward movement with no separate timer, preview, scoring/progression, pause remainder, accessible responsive controls and contained errors. Shared TypeScript rules/UI remain separate from the browser adapter. Modern extensions and Electron delivery are excluded. No further work is selected.
+
+Visibility/blur event delivery is modeled; native OS-window lifecycle, headed/full-browser, Windows-native and Electron remain unverified/excluded. There is no CI/signing/store package or live hosted-game claim. This is a deployable static browser build with no player Node dependency. Consult the phase/final reports for coverage and resolved R1/P1; TODO None.
